@@ -6,15 +6,18 @@ function Question (question, answers, correct) {
     
 }
 
-//Method to display random questions in console 
+//Method to display random questions in console using prototype without adding it to Question function  
 
 Question.prototype.displayQuestion = function () {
     console.log(this.question);
     
     for (var i = 0; i < this.answers.length; i++) {
-    console.log(this.answers); 
+    console.log((i + 1) + " - " + this.answers[i]); 
 }
 }
+
+
+// Questions 
 
 var question1 = new Question ("Is JavaScript the coolest langauge in the world?",
                               ["Yes", "No"],
@@ -44,8 +47,14 @@ var question4 = new Question ("When are you due to finish your course?"
                               3
 ); 
 
+// Array containing all questions 
+
 var questions = [question1, question2, question3, question4]; 
 
+// Random question 
+
 var pickRandomQuestion = Math.floor(Math.random() * questions.length); 
+
+// Retrieve the random question and call the displayquestion on it 
 
 questions[pickRandomQuestion].displayQuestion();
